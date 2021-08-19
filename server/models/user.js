@@ -30,11 +30,6 @@ const userSchema = new Schema(
       required: true,
     },
 
-    user_status: {
-      type: Boolean,
-      default: false, // determine if the user is active/inactive
-    },
-
     user_type: {
       type: Number,
       default: 2, // 0-admin|1-adviser|2-client

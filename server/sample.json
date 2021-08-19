@@ -1,0 +1,17 @@
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjOWI5ZTcxMjhkYjA4ZGNjNjI2YjUiLCJ1c2VyX3R5cGUiOjEsImlhdCI6MTYyOTM2MjAzMiwiZXhwIjoxNjI5OTY2ODMyfQ.NavnrB6k2hdTP3kScbWmi3y8-diyzDyQwOC6TMSL-o0",
+  "user": {
+    "user_type": 1,
+    "company_type": 2,
+    "_id": "611c9b9e7128db08dcc626b5",
+    "user_status": true,
+    "name": "John Paul Gabule",
+    "email": "jpgabule_advicers@gmail.com",
+    "contact_no": "0926912836",
+    "company": "N/A",
+    "location": "Valencia city",
+    "createdAt": "2021-08-18T05:33:18.337Z",
+    "updatedAt": "2021-08-18T05:33:18.337Z",
+    "__v": 0
+  }
+}

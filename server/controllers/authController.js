@@ -1,5 +1,7 @@
 import User from '../models/user';
+import Advicer from '../models/adviser';
 import jwt from 'jsonwebtoken';
+
 const register = async (req, res) => {
   try {
     const {
@@ -10,6 +12,7 @@ const register = async (req, res) => {
       company,
       company_type,
       location,
+      user_type,
     } = req.body;
 
     if (
@@ -19,6 +22,7 @@ const register = async (req, res) => {
       !email ||
       !company_type ||
       !location ||
+      !user_type ||
       !contact_no
     ) {
       return res.status(400).send('Fields is required!');
@@ -29,7 +33,9 @@ const register = async (req, res) => {
         .status(400)
         .send('Password is required and should be min 6 characters long!');
     }
+
     let userExist = await User.findOne({ email });
+
     if (userExist) {
       return res.status(400).send('Email is already taken!');
     }
@@ -39,8 +45,67 @@ const register = async (req, res) => {
       return res.status(400).send('Contact number is already taken!');
     }
 
-    const user = new User(req.body);
+    const user = new User({
+      name,
+      email,
+      contact_no,
+      password,
+      company,
+      company_type,
+      location,
+      user_type,
+    });
+
     const newUser = await user.save();
+
+    // check if the user type is 1 for adviser account
+    if (parseInt(user_type) === 1) {
+      // if user type equal to 1 then record the account corresponding the user id of the new created account
+      const {
+        skills,
+        course,
+        biography,
+        birthdate,
+        employment_type,
+        school_at,
+        field_of_study,
+        start_date_study,
+        end_date_study,
+        resume,
+      } = req.body;
+      if (
+        !skills ||
+        !course ||
+        !biography ||
+        !birthdate ||
+        !employment_type ||
+        !school_at ||
+        !field_of_study ||
+        !start_date_study ||
+        !end_date_study ||
+        !resume
+      ) {
+        return res.status(400).send('Fields is required!');
+      }
+
+      const adviser = new Advicer({
+        skills,
+        course,
+        biography,
+        birthdate,
+        employment_type,
+        school_at,
+        field_of_study,
+        start_date_study,
+        end_date_study,
+        resume,
+      });
+
+      adviser.postedBy = newUser._id;
+      const newAdvicer = await adviser.save();
+      return res.json({ user, newAdvicer });
+    }
+
     return res.json({ user: newUser });
   } catch (error) {
     console.log(error);
@@ -52,6 +117,7 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
+    console.log(req.body);
     const { username, password } = req.body;
     let user = await User.findOne({
       $and: [{ $or: [{ email: username }, { contact_no: username }] }],
@@ -63,9 +129,13 @@ const login = async (req, res) => {
       if (!match || err) {
         return res.status(400).send('The credentails are not found!');
       }
-      let token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-        expiresIn: '7d',
-      });
+      let token = jwt.sign(
+        { _id: user._id, user_type: user.user_type },
+        process.env.JWT_SECRET,
+        {
+          expiresIn: '7d',
+        }
+      );
 
       // remove the password to the response request
       user.password = undefined;
