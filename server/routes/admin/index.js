@@ -11,7 +11,7 @@ import { requiresSignIn } from '../../middleware';
 
 const router = express.Router();
 
-router.get('/concerns', requiresSignIn, index);
+router.get('/concerns', index); // requiresSignIn,
 router.get('/concern/:id', requiresSignIn, edit);
 router.put('/concern/:id', requiresSignIn, update);
 router.delete('/concern/:id', requiresSignIn, destroy);

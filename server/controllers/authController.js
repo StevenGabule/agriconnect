@@ -25,10 +25,13 @@ const register = async (req, res) => {
       !user_type ||
       !contact_no
     ) {
+      console.log('Fields is required!');
+
       return res.status(400).send('Fields is required!');
     }
 
     if (!password || password.length < 6) {
+      console.log('Password is required and should be min 6 characters long!');
       return res
         .status(400)
         .send('Password is required and should be min 6 characters long!');
@@ -37,11 +40,13 @@ const register = async (req, res) => {
     let userExist = await User.findOne({ email });
 
     if (userExist) {
+      console.log('Email is already taken!');
       return res.status(400).send('Email is already taken!');
     }
 
     let contactNoExist = await User.findOne({ contact_no });
     if (contactNoExist) {
+      console.log('Contact number is already taken!');
       return res.status(400).send('Contact number is already taken!');
     }
 
@@ -103,9 +108,10 @@ const register = async (req, res) => {
 
       adviser.postedBy = newUser._id;
       const newAdvicer = await adviser.save();
+      console.log(newAdvicer);
       return res.json({ user, newAdvicer });
     }
-
+    console.log(newUser);
     return res.json({ user: newUser });
   } catch (error) {
     console.log(error);
