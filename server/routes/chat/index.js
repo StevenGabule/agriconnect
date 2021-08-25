@@ -1,9 +1,11 @@
 import express from 'express';
-import { create } from '../../controllers/ChatController';
+import { create, getChatUsers, lists } from '../../controllers/ChatController';
 import { requiresSignIn } from '../../middleware';
 
 const router = express.Router();
 
 router.post('/chat', requiresSignIn, create);
+router.get('/lists', requiresSignIn, lists);
+router.get('/:chatId', requiresSignIn, getChatUsers);
 
-export default router;
+export { router as chatRouter };

@@ -4,7 +4,8 @@ import profile from './profile';
 import concerns from './concerns';
 import admin from './admin';
 import client from './client';
-import chat from './chat';
+import { chatRouter } from './chat';
+import { messageRouter } from './messenges';
 
 const router = express.Router();
 
@@ -13,5 +14,6 @@ router.use(profile);
 router.use(concerns);
 router.use(admin);
 router.use(client);
-router.use(chat);
+router.use(chatRouter);
+router.use(messageRouter);
 export default router;

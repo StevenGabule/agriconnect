@@ -61,6 +61,12 @@ const userSchema = new Schema(
   },
   {
     timestamps: true,
+    toJSON: {
+      transform(_, ret) {
+        delete ret.__v;
+        delete ret.password;
+      },
+    },
   }
 );
 
