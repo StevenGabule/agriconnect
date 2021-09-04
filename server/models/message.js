@@ -5,26 +5,30 @@ const { String, ObjectId } = Schema.Types;
 
 const messageSchema = new Schema(
   {
-    message_type: {
-      type: String,
-      default: 'text',
-    },
-    message: {
-      type: String,
-    },
-    chatId: {
-      type: ObjectId,
-      ref: 'Chat',
-      required: true,
-    },
-    fromUserId: {
+    sender: {
       type: ObjectId,
       ref: 'User',
-      required: true,
+    },
+    content: {
+      type: String,
+      trim: true,
+    },
+    chat: {
+      type: ObjectId,
+      ref: 'Chat',
+    },
+    readBy: {
+      type: ObjectId,
+      ref: 'User',
     },
   },
   {
     timestamps: true,
+    toJSON: {
+      transform(doc, ret) {
+        delete ret.__v;
+      },
+    },
   }
 );
 export default mongoose.model('Message', messageSchema);
