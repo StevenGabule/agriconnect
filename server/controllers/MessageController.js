@@ -32,7 +32,8 @@ const getMessageChat = async (req, res) => {
     const messages = await Message.find({ chat: req.params.chatId }).populate(
       'sender'
     );
-    return res.status(200).json(messages);5
+    return res.status(200).json(messages);
+  } catch (error) {
     console.log(error.message);
     return res.status(400).send(error.message);
   }
