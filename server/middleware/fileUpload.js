@@ -28,6 +28,7 @@ exports.userFile = ((req, res, next) => {
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       const { _id } = req.user;
+      // const _id = '611e77b3b4f1a339f085885a';
       const dest = `uploads/concern/${_id}`;
       fs.access(dest, (error) => {
         // file doesn't exists

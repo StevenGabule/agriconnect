@@ -16,6 +16,7 @@ const create = async (req, res) => {
 
     const concern = new Concern(req.body);
     concern.postedBy = req.user._id;
+
     concern.save((err, result) => {
       if (err) {
         console.log(err);
