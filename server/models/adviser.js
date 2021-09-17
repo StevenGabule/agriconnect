@@ -54,6 +54,10 @@ const adviserSchema = new Schema({
     type: String,
     required: true,
   },
+
+  cat: {
+    type: Number,
+  },
 });
 
 export default mongoose.model('Adviser', adviserSchema);

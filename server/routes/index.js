@@ -6,6 +6,7 @@ import admin from './admin';
 import client from './client';
 import { chatRouter } from './chat';
 import { messageRouter } from './messenges';
+import { adviserRouter } from './advisers';
 
 const router = express.Router();
 
@@ -16,4 +17,5 @@ router.use(admin);
 router.use(client);
 router.use(chatRouter);
 router.use(messageRouter);
+router.use(adviserRouter);
 export default router;

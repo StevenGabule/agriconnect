@@ -1,81 +1,24 @@
-[
-  {
-    "progress": 0,
-    "label": 1,
-    "status": 3,
-    "_id": "611cfa337c6af90ee83429f3",
-    "title": "my title 1",
-    "description": "my description 2",
-    "concern_file": "concern_file-1629289011198-1000000001.mp4",
-    "postedBy": {
-      "user_type": 1,
-      "company_type": 2,
-      "_id": "611c9b9e7128db08dcc626b5",
-      "user_status": true,
-      "name": "John Paul Gabule",
-      "email": "jpgabule_advicers@gmail.com",
-      "contact_no": "0926912836",
-      "company": "N/A",
-      "location": "Valencia city",
-      "createdAt": "2021-08-18T05:33:18.337Z",
-      "updatedAt": "2021-08-18T05:33:18.337Z",
+{
+  "advisers": [
+    {
+      "adviser_status": false,
+      "skills": ["Programming", "Designing", "Microservices API"],
+      "_id": "61439913ebc6ff4c24418264",
+      "cat": 21,
+      "course": "Bachelor in Science of Technology",
+      "biography": "My name is john",
+      "birthdate": "05/11/1993",
+      "employment_type": 1,
+      "school_at": "ACLC Bukidnon",
+      "field_of_study": "Web development",
+      "start_date_study": "June 2011",
+      "end_date_study": "March 2016",
+      "resume": "johnpaul_resume.pdf",
+      "postedBy": {
+        "_id": "611c9b9e7128db08dcc626b5",
+        "name": "John Paul Gabule"
+      },
       "__v": 0
-    },
-    "createdAt": "2021-08-18T12:16:51.292Z",
-    "updatedAt": "2021-08-19T04:19:51.586Z",
-    "__v": 0,
-    "assignBy": "611ddb5a651d7b06f09effed"
-  },
-  {
-    "progress": 0,
-    "label": 1,
-    "status": 3,
-    "_id": "611cfa9bcc121643e0aa5679",
-    "title": "my title 1",
-    "description": "my description 2",
-    "concern_file": "concern_file-1629289115833-1000000001.jpeg",
-    "postedBy": {
-      "user_type": 1,
-      "company_type": 2,
-      "_id": "611c9b9e7128db08dcc626b5",
-      "user_status": true,
-      "name": "John Paul Gabule",
-      "email": "jpgabule_advicers@gmail.com",
-      "contact_no": "0926912836",
-      "company": "N/A",
-      "location": "Valencia city",
-      "createdAt": "2021-08-18T05:33:18.337Z",
-      "updatedAt": "2021-08-18T05:33:18.337Z",
-      "__v": 0
-    },
-    "createdAt": "2021-08-18T12:18:35.852Z",
-    "updatedAt": "2021-08-18T12:18:35.852Z",
-    "__v": 0
-  },
-  {
-    "progress": 0,
-    "label": 1,
-    "status": 3,
-    "_id": "611dd28efe32f73a7c6a4555",
-    "title": "my title 1",
-    "description": "my description 2",
-    "concern_file": "concern_file-1629344398667-1000000000.jpeg",
-    "postedBy": {
-      "user_type": 1,
-      "company_type": 2,
-      "_id": "611c9b9e7128db08dcc626b5",
-      "user_status": true,
-      "name": "John Paul Gabule",
-      "email": "jpgabule_advicers@gmail.com",
-      "contact_no": "0926912836",
-      "company": "N/A",
-      "location": "Valencia city",
-      "createdAt": "2021-08-18T05:33:18.337Z",
-      "updatedAt": "2021-08-18T05:33:18.337Z",
-      "__v": 0
-    },
-    "createdAt": "2021-08-19T03:39:58.689Z",
-    "updatedAt": "2021-08-19T03:39:58.689Z",
-    "__v": 0
-  }
-]
+    }
+  ]
+}
