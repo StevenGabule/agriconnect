@@ -35,7 +35,7 @@ const concernSchema = new Schema(
     },
     status: {
       type: Number,
-      default: 3, // 1-approve|2-disapproved|3-pending
+      default: 3, // 1-approved|2-disapproved|3-pending
     },
     completed_date: {
       type: Date,

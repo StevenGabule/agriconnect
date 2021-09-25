@@ -1,5 +1,6 @@
 import Concern from '../models/concerns';
 import Adviser from '../models/adviser';
+const config = require('../config/app');
 
 const create = async (req, res) => {
   try {
@@ -36,6 +37,7 @@ const index = async (_, res) => {
   try {
     const concerns = await Concern.find({})
       .populate('postedBy', '-password')
+      .sort({ createdAt: 'descending' })
       .exec();
     return res.json(concerns);
   } catch (error) {

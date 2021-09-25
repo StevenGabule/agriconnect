@@ -1,24 +1,14 @@
 {
-  "advisers": [
-    {
-      "adviser_status": false,
-      "skills": ["Programming", "Designing", "Microservices API"],
-      "_id": "61439913ebc6ff4c24418264",
-      "cat": 21,
-      "course": "Bachelor in Science of Technology",
-      "biography": "My name is john",
-      "birthdate": "05/11/1993",
-      "employment_type": 1,
-      "school_at": "ACLC Bukidnon",
-      "field_of_study": "Web development",
-      "start_date_study": "June 2011",
-      "end_date_study": "March 2016",
-      "resume": "johnpaul_resume.pdf",
-      "postedBy": {
-        "_id": "611c9b9e7128db08dcc626b5",
-        "name": "John Paul Gabule"
-      },
-      "__v": 0
-    }
-  ]
+  "progress": 0,
+  "label": 1,
+  "status": 3,
+  "_id": "614baf2cefcb423728a00190",
+  "assignBy": "611c9b9e7128db08dcc626b5",
+  "description": "asdasdasdsadsa",
+  "title": "ASDASDSAD",
+  "concern_file": "http://10.74.220.11:8000/concern/611e77b3b4f1a339f085885a/concern_file-1632349996119-1000000001.jpeg",
+  "postedBy": { "_id": "611e77b3b4f1a339f085885a", "name": "gabs" },
+  "createdAt": "2021-09-22T22:33:16.150Z",
+  "updatedAt": "2021-09-22T22:33:16.150Z",
+  "__v": 0
 }
