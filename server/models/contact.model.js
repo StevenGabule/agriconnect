@@ -3,23 +3,31 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 const { String, ObjectId } = Schema.Types;
 
-const messageSchema = new Schema(
+const ContactSchema = new Schema(
   {
-    sender: {
+    sendBy: {
       type: ObjectId,
       ref: 'User',
     },
+
+    receivedBy: {
+      type: ObjectId,
+      ref: 'User',
+    },
+
     content: {
       type: String,
       trim: true,
     },
-    chat: {
-      type: ObjectId,
-      ref: 'Chat',
+
+    readAt: {
+      type: Date,
+      default: null,
     },
-    readBy: {
-      type: ObjectId,
-      ref: 'User',
+
+    status: {
+      type: Boolean,
+      default: false,
     },
   },
   {
@@ -31,4 +39,4 @@ const messageSchema = new Schema(
     },
   }
 );
-export default mongoose.model('Message', messageSchema);
+export default mongoose.model('Contact', ContactSchema);
