@@ -18,38 +18,47 @@ const adviserSchema = new Schema({
     type: [String],
     required: true,
   },
+
   course: {
     type: String,
     required: true,
   },
+
   biography: {
     type: String,
     required: true,
   },
+
   birthdate: {
     type: String,
     required: true,
   },
+
   employment_type: {
     type: Number,
     required: true, // 1-full-time,2-part-time, 3-freelance,4-contract,5-seasonal
   },
+
   school_at: {
     type: String,
     required: true,
   },
+
   field_of_study: {
     type: String,
     required: true,
   },
+
   start_date_study: {
     type: String,
     required: true,
   },
+
   end_date_study: {
     type: String,
     required: true,
   },
+
   resume: {
     type: String,
     required: true,

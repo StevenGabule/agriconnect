@@ -36,9 +36,11 @@ const create = async (req, res) => {
 const index = async (_, res) => {
   try {
     const concerns = await Concern.find({})
-      .populate('postedBy', '-password')
+      .populate('postedBy', '_id name')
+      .populate('assignBy', '_id name')
       .sort({ createdAt: 'descending' })
       .exec();
+    console.log(concerns);
     return res.json(concerns);
   } catch (error) {
     console.log(error.message);

@@ -25,8 +25,6 @@ const register = async (req, res) => {
       !user_type ||
       !contact_no
     ) {
-      console.log('Fields is required!');
-
       return res.status(400).send('Fields is required!');
     }
 
@@ -108,7 +106,6 @@ const register = async (req, res) => {
 
       adviser.postedBy = newUser._id;
       const newAdvicer = await adviser.save();
-      console.log(newAdvicer);
       return res.json({ user, newAdvicer });
     }
     console.log(newUser);
@@ -123,7 +120,6 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    console.log(req.body);
     const { username, password } = req.body;
     let user = await User.findOne({
       $and: [{ $or: [{ email: username }, { contact_no: username }] }],
@@ -152,7 +148,7 @@ const login = async (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     return res.status(400).json({
       error: error.message,
     });

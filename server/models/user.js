@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import moment from 'moment';
 
 const { Schema } = mongoose;
 const { String, Number, Date } = Schema.Types;
@@ -32,21 +33,20 @@ const userSchema = new Schema(
 
     user_type: {
       type: Number,
-      default: 2, // 0-admin|1-adviser|2-client
+      default: 2, // 3-admin|1-adviser|2-client
     },
 
     avatar: {
       type: String,
+      default: null,
     },
 
     company: {
       type: String,
-      required: true,
     },
 
     company_type: {
       type: Number,
-      required: true,
       default: 1, // 1-individual|2-company
     },
 
@@ -63,6 +63,8 @@ const userSchema = new Schema(
     timestamps: true,
     toJSON: {
       transform(_, ret) {
+        ret.createdForHuman = moment(ret.createdAt).fromNow();
+        ret.createdFormatted = moment(ret.createdAt).format('MMM Do YY');
         delete ret.__v;
         delete ret.password;
       },

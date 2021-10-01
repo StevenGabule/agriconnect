@@ -1,5 +1,16 @@
 import express from 'express';
 import {
+  adminConcernsHandler,
+  adminConcernsFetchHandler,
+  adminGetAdvisers,
+  adminGetAdvisersClient,
+  adminGetAllSubscribers,
+  adminGetAllUsers,
+  adminAdvicerAllClient,
+  adminGetAllUserPost,
+  getAllSubcribersHandler,
+} from '../../controllers/admin.controller';
+import {
   index,
   edit,
   update,
@@ -27,5 +38,34 @@ router.put(
   requiresSignIn,
   updateReAssign
 );
+
+router.get('/admin/concerns/posted', requiresSignIn, adminConcernsHandler);
+
+router.get(
+  '/admin/concerns/posted/:id',
+  requiresSignIn,
+  adminConcernsFetchHandler
+);
+
+router.get('/admin/advisers', requiresSignIn, adminGetAdvisers);
+
+router.get(
+  '/admin/advisers/clients/:id',
+  requiresSignIn,
+  adminGetAdvisersClient
+);
+
+router.get('/admin/subscribers', requiresSignIn, adminGetAllSubscribers);
+router.get('/admin/users/account', requiresSignIn, adminGetAllUsers);
+
+router.get(
+  '/admin/advisers/client/:adviserId',
+  requiresSignIn,
+  adminAdvicerAllClient
+);
+
+router.get('/admin/customer/all/:id', requiresSignIn, adminGetAllUserPost);
+
+router.get('/admin/reports', requiresSignIn, getAllSubcribersHandler);
 
 export default router;

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
@@ -35,7 +36,7 @@ const concernSchema = new Schema(
     },
     status: {
       type: Number,
-      default: 3, // 1-approved|2-disapproved|3-pending
+      default: 3, // 1-completed|2-processing|3-pending
     },
     completed_date: {
       type: Date,
@@ -43,6 +44,12 @@ const concernSchema = new Schema(
   },
   {
     timestamps: true,
+    toJSON: {
+      transform(_doc, ret) {
+        ret.createdForHuman = moment(ret.createdAt).fromNow();
+        ret.createdFormatted = moment(ret.createdAt).format('MMM Do YY');
+      },
+    },
   }
 );
 

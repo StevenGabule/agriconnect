@@ -64,8 +64,8 @@ const getShowAdviserConcerns = async (req, res) => {
   try {
     const advisers = await Concern.find({ assignBy })
       .populate('postedBy', '_id name')
+      .populate('assignBy', '_id name')
       .exec();
-    console.log(advisers);
     return res.json(advisers);
   } catch (error) {
     console.log(error.message);
